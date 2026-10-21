@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Obras de ASIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Tinos:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEEF1; --ink:#101826; --muted:#5A6474; --line:#C8CED6; --blue:#1F5BD6; --navy:#0E2A6B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --bg:#0E1420; --ink:#E4E9F0; --muted:#97A2B3; --line:#263044; --blue:#6E9BFF; --navy:#A9C1FF; }
+}
+:root[data-theme="dark"]{ --bg:#0E1420; --ink:#E4E9F0; --muted:#97A2B3; --line:#263044; --blue:#6E9BFF; --navy:#A9C1FF; }
+html{ scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px); }
+@media (prefers-reduced-motion:no-preference){ html{ scroll-behavior:smooth; } }
+*,*::before,*::after{ box-sizing:border-box; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:1.1rem; line-height:1.6; overflow-x:hidden;
+}
+h1,h2,h3{ margin:0; font-stretch:118%; letter-spacing:-.02em; }
+svg{ display:block; width:100%; height:100%; }
+a{ color:var(--blue); }
+a:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+
+/* ---------- HERO ---------- */
+.hero{ position:relative; height:100vh; height:100svh; overflow:hidden; background:#0B1E4D; }
+.layer{ position:absolute; inset:auto 0 0 0; height:100%; will-change:transform; }
+.layer.sky{ height:115%; }
+.h1-in{ display:block; }
+.layer > svg{ width:106%; margin-left:-3%; will-change:transform; }
+.asin-logo{ display:block; height:auto; color:inherit; overflow:visible; }
+
+/* ---------- MENÚ ---------- */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:50; color:#fff;
+  padding-top:env(safe-area-inset-top,0px);
+  transition:background-color .35s ease, color .35s ease, box-shadow .35s ease;
+}
+.nav.solid{ background:var(--bg); color:var(--ink); box-shadow:0 1px 0 var(--line); }
+.nav-in{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem clamp(1.25rem,5vw,4rem); }
+.nav .home{ display:flex; align-items:center; gap:.7rem; color:inherit; text-decoration:none; }
+.nav .home .asin-logo{ width:46px; }
+.nav .home span{ font-size:.9rem; line-height:1.15; font-weight:500; }
+.nav ul{ display:flex; gap:clamp(1rem,2.2vw,2rem); list-style:none; margin:0; padding:0; }
+.nav ul a{ color:inherit; text-decoration:none; font-size:.98rem; padding:.35rem 0; border-bottom:2px solid transparent; transition:border-color .2s; }
+.nav ul a:hover, .nav ul a.active{ border-bottom-color:currentColor; }
+.nav a:focus-visible, .menu-btn:focus-visible{ outline:2px solid currentColor; outline-offset:4px; }
+.menu-btn{ display:none; background:none; border:0; color:inherit; padding:.5rem; margin-right:-.5rem; cursor:pointer; }
+.menu-btn svg{ width:26px; height:26px; }
+
+.hero-head{
+  position:absolute; left:clamp(1.25rem,5vw,4rem); right:1.25rem; top:12%; max-width:62rem;
+  color:#fff; will-change:transform,opacity;
+}
+.hero-logo{ width:clamp(84px,10vw,120px); margin-bottom:1rem; filter:drop-shadow(0 4px 24px rgba(160,200,255,.35)); }
+.hero h1{
+  font-weight:800; font-stretch:125%;
+  font-size:clamp(2.2rem,6vw,5.4rem); line-height:.92; letter-spacing:-.035em;
+}
+.hint{
+  position:absolute; left:clamp(1.25rem,5vw,4rem); bottom:9%; z-index:6; margin:0;
+  color:rgba(255,255,255,.8); font-size:1rem;
+}
+
+/* ---------- TEXTO ---------- */
+.wrap{ max-width:44rem; margin:0 auto; padding:0 1.5rem; }
+.intro{ padding:16vh 0 12vh; }
+.intro p{ font-size:clamp(1.3rem,2.6vw,1.8rem); line-height:1.45; margin:0; }
+.intro p + p{ margin-top:1.2rem; font-size:1.1rem; color:var(--muted); }
+.section-title{ font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.05; margin-bottom:1rem; }
+.lead{ color:var(--muted); margin:0 0 2rem; }
+.scope{ list-style:none; padding:0; margin:0 0 14vh; border-top:1px solid var(--line); }
+.scope li{ padding:.9rem 0; border-bottom:1px solid var(--line); }
+.note{ padding:12vh 0; color:var(--muted); }
+.note p{ margin:0; font-size:1.25rem; }
+
+/* ---------- REVEAL ---------- */
+.reveal{ position:relative; height:100vh; height:100svh; overflow:hidden; }
+.frame{
+  position:absolute; inset:0; overflow:hidden; background:#1A2233;
+  clip-path:inset(16% 18% round 6px); will-change:clip-path;
+}
+.frame::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(6,12,28,.82),rgba(6,12,28,0) 55%);
+  pointer-events:none;
+}
+.img{ position:absolute; inset:-5% 0; transform:scale(1.2); will-change:transform; }
+.img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.caption{
+  position:absolute; left:clamp(1.5rem,6vw,5rem); right:1.5rem; bottom:clamp(2rem,8vh,5rem);
+  color:#F2F5FA; max-width:40rem; z-index:2; opacity:0; visibility:hidden;
+}
+.caption .where{ margin:0 0 .5rem; font-size:1rem; opacity:.85; }
+.caption h2{ font-weight:800; font-size:clamp(2.2rem,6vw,4.6rem); line-height:.95; letter-spacing:-.03em; }
+.caption p.desc{ margin:1rem 0 0; font-size:1.05rem; line-height:1.5; max-width:34rem; }
+.caption .client{ font-weight:600; }
+
+/* ---------- SERVICIOS ---------- */
+.services{ padding:16vh 0 4vh; }
+.cols{ display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:2rem; }
+.cols h3{ font-size:1.15rem; margin-bottom:.75rem; color:var(--navy); }
+.cols ul{ list-style:none; padding:0; margin:0; }
+.cols li{ padding:.45rem 0; border-bottom:1px solid var(--line); }
+.clients{ padding:10vh 0; }
+.logos{ list-style:none; padding:0; margin:2rem 0 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; }
+.logos li{ background:#fff; border:1px solid var(--line); border-radius:6px; aspect-ratio:3/2; display:flex; align-items:center; justify-content:center; padding:1rem 1.25rem; }
+.logos img{ max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply; }
+
+/* ---------- CONTACTO ---------- */
+.contact{ background:var(--navy); color:#fff; padding:14vh 0 10vh; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .contact{ background:#14204A; } }
+:root[data-theme="dark"] .contact{ background:#14204A; }
+.contact .asin-logo{ width:120px; margin-bottom:2rem; }
+.stub{ padding:14vh 0 2vh; }
+.btn{ display:inline-block; margin-top:.5rem; padding:.85rem 1.4rem; border-radius:6px; background:var(--blue); color:#fff; text-decoration:none; font-weight:600; }
+.btn:hover{ filter:brightness(1.1); }
+.contact h2{ font-size:clamp(2rem,5vw,3.4rem); line-height:1; margin-bottom:2rem; }
+.contact dl{ display:grid; grid-template-columns:max-content 1fr; gap:.6rem 2rem; margin:0; }
+.contact dt{ opacity:.7; }
+.contact dd{ margin:0; }
+.contact a{ color:#fff; }
+.contact a:focus-visible{ outline-color:#fff; }
+footer{ display:flex; align-items:center; gap:.8rem; color:var(--muted); font-size:.95rem; padding:2rem 1.5rem; max-width:44rem; margin:0 auto; }
+footer .asin-logo{ width:34px; color:var(--ink); }
+
+/* sin movimiento */
+.still .frame{ clip-path:none; }
+.still .img{ transform:none; inset:0; }
+.still .caption{ opacity:1; visibility:visible; }
+
+@media (max-width:900px){
+  .menu-btn{ display:block; }
+  .nav ul{
+    position:fixed; left:0; right:0; top:calc(env(safe-area-inset-top,0px) + 66px);
+    flex-direction:column; gap:0; padding:.5rem clamp(1.25rem,5vw,4rem) 1.5rem;
+    background:var(--bg); color:var(--ink); box-shadow:0 12px 24px rgba(0,0,0,.12);
+    display:none;
+  }
+  .nav.open ul{ display:flex; }
+  .nav.open{ background:var(--bg); color:var(--ink); }
+  .nav ul a{ display:block; padding:.9rem 0; font-size:1.1rem; border-bottom:1px solid var(--line); }
+  .nav ul a.active{ color:var(--blue); }
+  .nav .home span{ display:none; }
+}
+@media (max-width:700px){
+  .frame{ clip-path:inset(22% 6% round 6px); }
+  .cols{ grid-template-columns:1fr; gap:2rem; }
+  .contact dl{ grid-template-columns:1fr; gap:.1rem; }
+  .contact dd{ margin-bottom:.8rem; }
+}
+/* ---------- GALERÍA DE OBRAS ---------- */
+.gallery{ padding:14vh 0 4vh; }
+.gallery-wrap{ max-width:72rem; margin:0 auto; padding:0 1.5rem; }
+.obras-grid{ list-style:none; padding:0; margin:2rem 0 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:1.5rem; }
+.obra-card{ display:block; width:100%; text-align:left; background:none; border:0; padding:0; color:inherit; font:inherit; cursor:pointer; }
+.obra-card .ph{ position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:6px; background:#1A2233; }
+.obra-card img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+.obra-card:hover img{ transform:scale(1.05); }
+.obra-card .count{ position:absolute; right:.6rem; bottom:.6rem; background:rgba(6,12,28,.75); color:#fff; font-size:.85rem; padding:.25rem .6rem; border-radius:99px; }
+.obra-card h3{ font-size:1.3rem; margin:.9rem 0 .2rem; }
+.obra-card p{ margin:0; color:var(--muted); font-size:1rem; line-height:1.45; }
+.obra-card:focus-visible{ outline:2px solid var(--blue); outline-offset:6px; border-radius:6px; }
+
+.lb{ position:fixed; inset:0; z-index:100; background:#05090F; color:#fff; }
+.lb[hidden]{ display:none; }
+.lb-in{ display:grid; grid-template-rows:auto 1fr auto; height:100%; }
+.lb-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; padding:calc(env(safe-area-inset-top,0px) + 1rem) 1.25rem .5rem; }
+.lb-top h3{ margin:0; font-size:1.25rem; }
+.lb-top p{ margin:.2rem 0 0; opacity:.75; font-size:.95rem; max-width:48rem; line-height:1.45; }
+.lb-stage{ position:relative; display:flex; align-items:center; justify-content:center; min-height:0; padding:0 3.5rem; }
+.lb-stage video{ max-width:100%; max-height:100%; border-radius:4px; background:#000; }
+.lb-stage video[hidden], .lb-stage img[hidden]{ display:none; }
+.lb-stage img{ max-width:100%; max-height:100%; object-fit:contain; border-radius:4px; user-select:none; }
+.lb-btn{ background:rgba(255,255,255,.1); border:0; color:#fff; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; cursor:pointer; flex:none; }
+.lb-btn:hover{ background:rgba(255,255,255,.2); }
+.lb-btn:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+.lb-btn svg{ width:22px; height:22px; }
+.lb-prev,.lb-next{ position:absolute; top:50%; transform:translateY(-50%); z-index:2; }
+.lb-btn[hidden]{ display:none; }
+.lb-prev{ left:.6rem; } .lb-next{ right:.6rem; }
+.lb-foot{ pointer-events:none; text-align:center; padding:.8rem 1rem calc(env(safe-area-inset-bottom,0px) + 1rem); opacity:.75; font-size:.95rem; }
+@media (max-width:700px){ .lb-stage{ padding:0 .5rem 4rem; } .lb-prev,.lb-next{ top:auto; bottom:.5rem; transform:none; width:52px; height:52px; } .lb-prev{ left:1rem; } .lb-next{ right:1rem; } }
+
+.page-head{ padding-top:calc(env(safe-area-inset-top,0px) + 130px); padding-bottom:1rem; }
+.page-head h1{ font-size:clamp(2.4rem,6vw,4.4rem); line-height:.95; letter-spacing:-.03em; margin:0 0 1rem; }
+.page-head p{ color:var(--muted); margin:0; font-size:1.15rem; max-width:38rem; }
+.all-obras{ padding:0 0 14vh; }
+.obra-card .where{ font-size:.92rem; color:var(--blue); margin:.1rem 0 .35rem; }
+.obra-card{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.obra-card.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .obra-card{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="asinGrad" cx="50%" cy="55%" r="65%"><stop offset="0" stop-color="#2F86FF"/><stop offset=".55" stop-color="#1446C8"/><stop offset="1" stop-color="#071A6E"/></radialGradient>
+    <symbol id="asin" viewBox="95 5 550 560">
+      <path d="M105 375 C150 470 165 560 195 555 C235 548 290 420 335 320 C380 220 440 15 500 15 C545 15 600 150 635 240 C600 200 560 182 515 185 C430 190 375 260 335 320 C300 380 250 420 200 418 C160 416 125 400 105 375 Z" fill="url(#asinGrad)" stroke="#06144F" stroke-width="3"/>
+      <text x="365" y="370" text-anchor="middle" font-family="Tinos, 'Times New Roman', Times, serif" font-weight="700" font-size="215" textLength="500" lengthAdjust="spacingAndGlyphs" fill="currentColor">ASIN</text>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav solid" aria-label="Principal">
+  <div class="nav-in">
+    <a class="home" href="./" aria-label="ASIN, ir al inicio">
+      <svg class="asin-logo" viewBox="95 5 550 560" role="img" aria-hidden="true"><use href="#asin"/></svg>
+      <span>Instalaciones<br>Integrales</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul id="menu">
+      <li><a href="obras.html" class="active" aria-current="page">Obras</a></li>
+      <li><a href="./#servicios">Servicios</a></li>
+      <li><a href="./#cotizaciones">Cotizaciones</a></li>
+      <li><a href="./#materiales">Materiales de obra</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <header class="gallery-wrap page-head">
+    <h1>Todas las obras</h1>
+    <p><span id="obras-n"></span> obras donde ASIN fue responsable de la instalación eléctrica completa. Tocá cualquiera para ver sus fotos.</p>
+  </header>
+  <section class="all-obras" aria-label="Listado de obras">
+    <div class="gallery-wrap"><ul class="obras-grid" id="obras-grid"></ul></div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <svg class="asin-logo" viewBox="95 5 550 560" role="img" aria-label="ASIN" style="color:#fff"><use href="#asin"/></svg>
+      <h2>Hablemos de tu obra</h2>
+      <p style="margin:-1rem 0 2rem"><a class="btn btn-lg" href="./#cotizaciones" style="background:#fff;color:#0E2A6B">Pedir cotización</a></p>
+      <dl>
+        <dt>Contacto</dt><dd>Sergio Gersberg · <a href="tel:+541165180937">11 6518-0937</a></dd>
+        <dt></dt><dd>Daniel Idelson · <a href="tel:+541141737147">11 4173-7147</a></dd>
+        <dt>Email</dt><dd><a href="mailto:asiningenieria@gmail.com">asiningenieria@gmail.com</a></dd>
+        <dt>Oficina</dt><dd>Benjamín Villafañe 2199, CABA (C1416)</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+  <div class="lb-in">
+    <div class="lb-top">
+      <div><h3 id="lb-title"></h3><p id="lb-desc"></p></div>
+      <button class="lb-btn lb-close" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lb-stage">
+      <button class="lb-btn lb-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <img id="lb-img" alt=""><video id="lb-vid" controls playsinline preload="metadata" hidden></video>
+      <button class="lb-btn lb-next" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="lb-foot" id="lb-count" aria-live="polite"></div>
+  </div>
+</div>
+
+<footer><svg class="asin-logo" viewBox="95 5 550 560" aria-hidden="true"><use href="#asin"/></svg>ASIN Instalaciones Integrales SRL · Buenos Aires</footer>
+
+<script src="obras-data.js"></script>
+<script>
+/* ===== Menú mobile (no depende de GSAP) ===== */
+const nav = document.querySelector(".nav"), btn = document.querySelector(".menu-btn");
+const closeMenu = () => { nav.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-label", "Abrir menú"); };
+btn.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  btn.setAttribute("aria-expanded", String(open));
+  btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+});
+document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", closeMenu));
+
+const pad = n => String(n).padStart(2, "0");
+const grid = document.getElementById("obras-grid");
+document.getElementById("obras-n").textContent = OBRAS.length;
+const nv = o => (o.videos || []).length;
+const total = o => o.fotos + nv(o);
+const countLabel = o => [o.fotos > 1 ? `${o.fotos} fotos` : o.fotos ? "1 foto" : "", nv(o) ? (nv(o) > 1 ? `${nv(o)} videos` : "1 video") : ""].filter(Boolean).join(" · ");
+OBRAS.forEach((o, i) => {
+  const li = document.createElement("li");
+  li.innerHTML = `<button class="obra-card" type="button">
+      <div class="ph"><img src="obras/${o.slug}/01-t.jpg" alt="" loading="lazy">${total(o) > 1 ? `<span class="count">${countLabel(o)}</span>` : ""}</div>
+      <h3></h3>${o.ubicacion ? '<p class="where"></p>' : ""}<p class="d"></p></button>`;
+  li.querySelector("h3").textContent = o.nombre;
+  if (o.ubicacion) li.querySelector(".where").textContent = o.ubicacion;
+  li.querySelector(".d").textContent = o.desc;
+  li.querySelector("button").addEventListener("click", () => openLb(i, 0));
+  grid.appendChild(li);
+});
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { rootMargin: "0px 0px -8% 0px" }) : null;
+document.querySelectorAll(".obra-card").forEach((c, i) => { c.style.transitionDelay = (i % 3) * 80 + "ms"; io ? io.observe(c) : c.classList.add("in"); });
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbVid = document.getElementById("lb-vid");
+let cur = 0, idx = 0;
+function showLb() {
+  const o = OBRAS[cur], n = total(o);
+  lbVid.pause();
+  if (idx < o.fotos) {
+    lbVid.hidden = true; lbVid.removeAttribute("src"); lbImg.hidden = false;
+    lbImg.src = `obras/${o.slug}/${pad(idx + 1)}.jpg`;
+    lbImg.alt = `${o.nombre}, foto ${idx + 1} de ${o.fotos}`;
+    if (idx + 1 < o.fotos) { const nx = new Image(); nx.src = `obras/${o.slug}/${pad(idx + 2)}.jpg`; }
+  } else {
+    const v = o.videos[idx - o.fotos];
+    lbImg.hidden = true; lbVid.hidden = false;
+    lbVid.poster = `obras/${o.slug}/${v}-poster.jpg`;
+    lbVid.src = `obras/${o.slug}/${v}.mp4`;
+    lbVid.setAttribute("aria-label", `${o.nombre}, video ${idx - o.fotos + 1}`);
+  }
+  document.getElementById("lb-count").textContent = `${idx + 1} / ${n}`;
+}
+let lastFocus = null;
+function openLb(i, j) {
+  cur = i; idx = j;
+  document.getElementById("lb-title").textContent = OBRAS[i].nombre;
+  document.getElementById("lb-desc").textContent = OBRAS[i].desc;
+  const one = total(OBRAS[i]) < 2;
+  lb.querySelector(".lb-prev").hidden = one; lb.querySelector(".lb-next").hidden = one;
+  showLb();
+  lastFocus = document.activeElement;
+  lb.hidden = false; document.body.style.overflow = "hidden";
+  lb.querySelector(".lb-close").focus();
+}
+function closeLb() {
+  lbVid.pause();
+  lb.hidden = true; document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+const step = d => { const n = total(OBRAS[cur]); idx = (idx + d + n) % n; showLb(); };
+lb.querySelector(".lb-prev").addEventListener("click", () => step(-1));
+lb.querySelector(".lb-next").addEventListener("click", () => step(1));
+lb.querySelector(".lb-close").addEventListener("click", closeLb);
+lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage") || e.target.classList.contains("lb-in")) closeLb(); });
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") closeLb();
+  if (e.key === "ArrowLeft" && document.activeElement !== lbVid) step(-1);
+  if (e.key === "ArrowRight" && document.activeElement !== lbVid) step(1);
+  if (e.key === "Tab") {
+    const f = [...lb.querySelectorAll("button:not([hidden]), video:not([hidden])")];
+    const k = f.indexOf(document.activeElement);
+    if (e.shiftKey && k <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && k === f.length - 1) { e.preventDefault(); f[0].focus(); }
+  }
+});
+let sx = null;
+lbImg.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+lbImg.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); sx = null; });
+
+</script>
+</body>
+</html>

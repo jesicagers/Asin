@@ -1,0 +1,47 @@
+/* Listado de obras de ASIN.
+   Para sumar una obra: crear la carpeta obras/<slug>/ con 01.jpg, 01-t.jpg, 02.jpg, 02-t.jpg...
+   y agregar un objeto acá. "fotos" es la cantidad de fotos de la carpeta.
+   Videos opcionales: obras/<slug>/v1.mp4 + v1-poster.jpg, y videos: ["v1"]. */
+const OBRAS = [
+  { slug: "spegazzini", nombre: "Nave logística Spegazzini", cliente: "",
+    ubicacion: "Carlos Spegazzini, Ezeiza",
+    desc: "Instalación eléctrica integral de nave industrial: iluminación LED de alta bahía, bandejas portacables, tableros y tomas industriales, iluminación de emergencia y señalización de salidas, detección de incendio e iluminación exterior de muelles de carga.",
+    fotos: 8 },
+  { slug: "torre-ferroviaria", nombre: "Torre de iluminación en playa ferroviaria", cliente: "",
+    ubicacion: "Retiro, CABA",
+    desc: "Montaje e instalación eléctrica de torre de iluminación con plataforma y escalera de acceso en playa de maniobras ferroviaria: base, izaje con hidrogrúa, alimentación y tablero.",
+    fotos: 4, videos: ["v1", "v2"] },
+  { slug: "estancia", nombre: "Remodelación de casco de estancia", cliente: "",
+    ubicacion: "",
+    desc: "Instalación eléctrica completa de una casona histórica en remodelación: cableado nuevo embutido en el revestimiento de madera, tomas e iluminación por ambiente y tableros seccionales con protección diferencial.",
+    fotos: 13 },
+  { slug: "geriatria", nombre: "Instituto de Geriatría Dr. Rodríguez Ortega", cliente: "Municipalidad de Vicente López",
+    ubicacion: "Vicente López, Buenos Aires",
+    desc: "Instalación eléctrica integral del geriátrico municipal: tablero seccional general con medición, tableros seccionales por sector, iluminación LED interior y exterior, tomas y alimentación de aire acondicionado VRV.",
+    fotos: 10, videos: ["v1", "v2"] },
+  { slug: "guarderia", nombre: "Guardería náutica", cliente: "",
+    ubicacion: "",
+    desc: "Instalación eléctrica de la guardería y su canal: alimentación de puentes grúa Capria, tableros de distribución, iluminación LED del canal y amarras, tableros con tomas para embarcaciones sobre postes y canalizaciones exteriores.",
+    fotos: 15, videos: ["v1", "v2"] },
+  { slug: "cargadores", nombre: "Estaciones de carga para autos eléctricos", cliente: "YPF",
+    ubicacion: "",
+    desc: "Instalación de cargadores rápidos ABB (43 kW AC y 50 kW DC CHAdeMO / CCS) en estaciones de servicio: tableros IP65, canalizaciones y cableado de potencia.",
+    fotos: 14 },
+  { slug: "playon", nombre: "Playón techado con cubierta curva", cliente: "",
+    ubicacion: "",
+    desc: "Iluminación general y perimetral LED de la cubierta, tableros eléctricos y alimentación de los edificios de servicio.",
+    fotos: 13 },
+  { slug: "vtv-sud", nombre: "Planta VTV Sud Barracas", cliente: "VTV Sud",
+    ubicacion: "Herrera y Río Cuarto, Barracas, CABA",
+    desc: "Instalación eléctrica de la nueva planta de Verificación Técnica Vehicular: 12 líneas de verificación, tableros, UPS, grupo electrógeno, tomas, datos e iluminación.",
+    fotos: 8 },
+  { slug: "edificio-solis", nombre: "Edificio Solís", cliente: "Estudio Arq. Hug y Asociados",
+    ubicacion: "Solís 1330, Vicente López",
+    desc: "12.000 m² en 6 pisos de oficinas y 200 cocheras. Instalación eléctrica, CCTV, detección de incendio, cámara transformadora para Edenor, red de datos y control de acceso.",
+    fotos: 16 },
+  { slug: "aerolineas", nombre: "Aerolíneas Argentinas", cliente: "Aerolíneas Argentinas",
+    ubicacion: "",
+    desc: "Celdas de media tensión, transformador, tableros generales, bandejas portacables y sistema de puesta a tierra.",
+    fotos: 13 }
+
+];
