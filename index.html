@@ -59,7 +59,8 @@ a:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
 
 .hero-head{
   position:absolute; left:clamp(1.25rem,5vw,4rem); right:1.25rem; top:12%; max-width:62rem;
-  color:#fff; will-change:transform,opacity;
+  color:#fff; will-change:transform,opacity; z-index:5;
+  text-shadow:0 2px 30px rgba(5,15,45,.55);
 }
 .hero-logo{ width:clamp(84px,10vw,120px); margin-bottom:1rem; filter:drop-shadow(0 4px 24px rgba(160,200,255,.35)); }
 .hero h1{
@@ -234,6 +235,31 @@ footer .asin-logo{ width:34px; color:var(--ink); }
   .contact dl{ grid-template-columns:1fr; gap:.1rem; }
   .contact dd{ margin-bottom:.8rem; }
 }
+
+/* ---------- PALETA AZUL / CELESTE ---------- */
+.section-title::after{ content:""; display:block; width:56px; height:4px; margin-top:.9rem; border-radius:2px; background:linear-gradient(90deg,#1446C8,#1FB8E8); }
+.band h2::after{ content:""; display:block; width:56px; height:4px; margin-top:.9rem; border-radius:2px; background:#fff; }
+.btn{ background:linear-gradient(115deg,#1446C8,#1A8FE0); }
+.btn.btn-wa{ background:#1A7F45; }
+.note{ background:linear-gradient(90deg,rgba(31,184,232,.10),rgba(20,70,200,.06)); border-left:4px solid #1FB8E8; padding:3rem 2rem; margin:10vh auto; max-width:44rem; }
+.note p{ color:var(--ink); font-weight:500; }
+section.services{ background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,#1FB8E8 9%,var(--bg)) 100%); }
+.serv-grid li{ background:color-mix(in srgb,#fff 55%,var(--bg)); }
+.quote{ background:color-mix(in srgb,#1446C8 6%,var(--bg)); max-width:none; }
+.quote > *{ max-width:44rem; margin-left:auto; margin-right:auto; }
+.contact{ background:linear-gradient(125deg,#0B1E4D 0%,#1446C8 60%,#1FB8E8 100%); }
+.obras-grid-sec{ max-width:72rem; margin:0 auto; padding:12vh 1.5rem 0; }
+.obras-grid{ list-style:none; margin:2.5rem 0 0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.obras-grid a{ position:relative; display:block; aspect-ratio:4/3; overflow:hidden; border-radius:8px; color:#fff; text-decoration:none; background:#0B1E4D; }
+.obras-grid img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease, opacity .3s; }
+.obras-grid a::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%,rgba(11,30,77,.92)); }
+.obras-grid a:hover img{ transform:scale(1.06); }
+.og-txt{ position:absolute; left:1.1rem; right:1.1rem; bottom:1rem; z-index:1; display:grid; gap:.15rem; }
+.og-txt strong{ font-size:1.1rem; line-height:1.2; }
+.og-txt small{ font-size:.9rem; opacity:.85; }
+.obras-grid a:focus-visible{ outline:3px solid #1FB8E8; outline-offset:3px; }
+@media (max-width:900px){ .obras-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .obras-grid{ grid-template-columns:1fr; } .note{ padding:2rem 1.25rem; margin:8vh 1rem; } }
 </style>
 </head>
 <body>
@@ -320,6 +346,18 @@ footer .asin-logo{ width:34px; color:var(--ink); }
       <h2>Instituto de Geriatría Dr. Rodríguez Ortega</h2>
       <p class="desc"><span class="client">Cliente: Municipalidad de Vicente López.</span> Instalación eléctrica integral del geriátrico municipal: tableros seccionales, iluminación LED interior y exterior, tomas y alimentación de aire acondicionado VRV.</p>
     </div>
+  </section>
+
+  <section class="obras-grid-sec" aria-labelledby="og-title">
+    <h2 class="section-title" id="og-title">Más obras</h2>
+    <ul class="obras-grid">
+      <li><a href="obras.html#estancia"><img src="obras/estancia/01-t.jpg" alt="Remodelación de casco de estancia" loading="lazy"><span class="og-txt"><strong>Remodelación de casco de estancia</strong><small></small></span></a></li>
+      <li><a href="obras.html#guarderia"><img src="obras/guarderia/01-t.jpg" alt="Guardería náutica" loading="lazy"><span class="og-txt"><strong>Guardería náutica</strong><small></small></span></a></li>
+      <li><a href="obras.html#torre-ferroviaria"><img src="obras/torre-ferroviaria/01-t.jpg" alt="Torre de iluminación en playa ferroviaria" loading="lazy"><span class="og-txt"><strong>Torre de iluminación en playa ferroviaria</strong><small>Retiro, CABA</small></span></a></li>
+      <li><a href="obras.html#edificio-solis"><img src="obras/edificio-solis/01-t.jpg" alt="Edificio Solís" loading="lazy"><span class="og-txt"><strong>Edificio Solís</strong><small>Solís 1330, Vicente López</small></span></a></li>
+      <li><a href="obras.html#cargadores"><img src="obras/cargadores/01-t.jpg" alt="Estaciones de carga para autos eléctricos" loading="lazy"><span class="og-txt"><strong>Estaciones de carga para autos eléctricos</strong><small></small></span></a></li>
+      <li><a href="obras.html#vtv-sud"><img src="obras/vtv-sud/01-t.jpg" alt="Planta VTV Sud Barracas" loading="lazy"><span class="og-txt"><strong>Planta VTV Sud Barracas</strong><small>Herrera y Río Cuarto, Barracas, CABA</small></span></a></li>
+    </ul>
   </section>
 
   <section class="wrap obras-cta">
